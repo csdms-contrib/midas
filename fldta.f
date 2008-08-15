@@ -76,7 +76,7 @@ C----------------------------------------------------------------------
       QN(2) = QO
       IF (QTMOD .EQ. 1) THEN
          CONV = LOG(0.5)
-         QN(2) = QO*EXP(CONV*FLOAT(QCOUNT*DELT)/FLOAT(THALFQ))
+         QN(2) = QO*EXP(CONV*REAL(QCOUNT*DELT)/REAL(THALFQ))
          QCOUNT = QCOUNT + 1
       ENDIF
       IF (QSPMOD .EQ. 1) THEN

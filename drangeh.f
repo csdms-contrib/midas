@@ -5,7 +5,7 @@ C                  TRANSPORTED AS BEDLOAD FOR EACH SHEAR STRESS RANGE
 C---------------------------------------------------------------------
       SUBROUTINE DRANGEH
       IMPLICIT NONE
-      REAL*8 RHO,G                                                       
+      REAL*8 RHO,G
       REAL*8 VISKIN,THETAC                                              
       REAL*8 DIMID(20,3),SIGMA(3)                                      
       REAL*8 DIFEND(20,3),DIMIN(3)                                    

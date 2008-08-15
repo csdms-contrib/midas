@@ -49,12 +49,12 @@ C----------------------------------------------------------------------
      #              AVDENS
       COMMON /COM15/CONIM,CVELM,PHI,OPTSUSP,OPTLNODE
       COMMON /COM17/SDBDX,SDBDT,SXFLUX,STFLUX,STHICK
-      COMMON /COM20/ NTOT,DENDM
+      COMMON /COM20/DENDM,NTOT
       COMMON /COM21/RUN,PRINT
       COMMON /COM22/AWPM,D50M
       COMMON /COM25/WIDM,ELEVM,DCHM,TOXM,SVELM,SVELUM
-      COMMON /COM27/SBLWTA,SBLWT,SCVELIA,SCVELI,COUNTER,SPRTHICK,
-     #              TOTTHICK
+      COMMON /COM27/SBLWTA,SBLWT,SCVELIA,SCVELI,SPRTHICK,
+     #              TOTTHICK,COUNTER
       COMMON /COM28/NSIZE,NSIGMA,M,N
       COMMON /COM30/PLOTPRINT
       COMMON /COM31/OPTEL,OPTWID,WIDTOP,DELWID,ELEVTOP,SLOPE
@@ -94,7 +94,7 @@ C-------------------------------------------------------------------------------
     6 CONTINUE
       READ (4, 107) (PROPT(K), K = 1, NK)
   100    FORMAT(9F8.5)
-  101    FORMAT(4F10.2)
+C 101    FORMAT(4F10.2)
   102    FORMAT(I9)
   103    FORMAT(5I1)
   104    FORMAT(A72)
@@ -106,6 +106,6 @@ C-------------------------------------------------------------------------------
   110    FORMAT(2F8.6)
   111    FORMAT(6E10.4)
   112    FORMAT(F8.3)
-  113    FORMAT(3F8.2)
+C 113    FORMAT(3F8.2)
       RETURN 
       END

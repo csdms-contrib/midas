@@ -1,6 +1,6 @@
 
 GFORTRAN=gfortran
-FFLAGS=
+FFLAGS=-Wall
 PROG=midas
 VERSION=0.1
 SOURCES=fldta.f entrain.f entrainh.f settle.f svela.f turb.f bedload.f logdist.f susp.f midas.f \
@@ -10,7 +10,7 @@ OBJS=${SOURCES:.f=.o}
 
 all: ${PROG}
 
-${PROG}: ${SOURCES}
+${PROG}: ${OBJS}
 	${GFORTRAN} ${FFLAGS} -o ${PROG} ${SOURCES}
 
 dist:
@@ -22,4 +22,7 @@ dist:
 
 clean:
 	@rm -f ${PROG} ${OBJS} core
+
+.f.o:
+	${GFORTRAN} ${FFLAGS} -c $<
 

@@ -5,7 +5,7 @@ C                   DO A RESTART
 C----------------------------------------------------------------------
       SUBROUTINE WRITERSTRT
       IMPLICIT NONE
-      REAL*8 RHO,G                                                       
+      REAL*8 RHO,G
       REAL*8 VISKIN,THETAC                                              
       REAL*8 DIMID(20,3),SIGMA(3)                                      
       REAL*8 DIFEND(20,3),DIMIN(3)                                    
@@ -59,12 +59,12 @@ C----------------------------------------------------------------------
       COMMON /COM15/CONIM,CVELM,PHI,OPTSUSP,OPTLNODE
       COMMON /COM17/SDBDX,SDBDT,SXFLUX,STFLUX,STHICK
       COMMON /COM19/YMAX,DELY,VEL,EPSY,PSI,BETA
-      COMMON /COM20/ NTOT,DENDM
+      COMMON /COM20/DENDM,NTOT
       COMMON /COM21/RUN,PRINT
       COMMON /COM22/AWPM,D50M
       COMMON /COM25/WIDM,ELEVM,DCHM,TOXM,SVELM,SVELUM
-      COMMON /COM27/SBLWTA,SBLWT,SCVELIA,SCVELI,COUNTER,SPRTHICK,
-     #TOTTHICK
+      COMMON /COM27/SBLWTA,SBLWT,SCVELIA,SCVELI,SPRTHICK,
+     #TOTTHICK,COUNTER
       COMMON /COM28/NSIZE,NSIGMA,M,N
       COMMON /COM29/DELX,DELT,XPRINT,TPRINT
       COMMON /COM30/PLOTPRINT
@@ -139,6 +139,6 @@ C-------------------------------------------------------------------------------
   114    FORMAT(1X,2F8.6)
   115    FORMAT(1X,6E10.4)
   116    FORMAT(1X,F8.3)
-  117    FORMAT(1X,3F8.2)
+C 117    FORMAT(1X,3F8.2)
       RETURN 
       END

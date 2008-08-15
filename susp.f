@@ -2,7 +2,7 @@ C**************************SUBROUTINE SUSP*****************************
 C----------------------------------------------------------------------
 C  THIS SUBROUTINE: CALCULATES SUSPENDED LOAD TRANSPORT RATES
 C----------------------------------------------------------------------
-      SUBROUTINE SUSP(NT)
+      SUBROUTINE SUSP()
       IMPLICIT NONE
       REAL*8 DIMID(20,3),SIGMA(3)                               
       REAL*8 DIFEND(20,3),DIMIN(3)                             
@@ -48,7 +48,7 @@ C----------------------------------------------------------------------
 C----------------------------------------------------------------------
 C     DECLARATION STATEMENTS--EXTERNAL VARIABLES NOT IN COMMON BLOCKS
 C----------------------------------------------------------------------
-      INTEGER*4 NT
+C     INTEGER*4 NT
 C----------------------------------------------------------------------
       INTEGER*4 I,IN,JN,J
       REAL*8 B1,BCON,BWT,BWTA,SWT,SWTA,W
@@ -97,7 +97,7 @@ C      LOAD FLUX IS USED
 C---------------------------------------------------------------------
                      IF (OPTSUSP .EQ. 1) THEN
                         DY1 = 1.0
-    5                   CONTINUE
+C   5                   CONTINUE
                      ELSE
 C----------------------------------------------------------------------
 C     CALCULATE EQUILIBRIUM CONCENTRATIONS USING THE ROUSE EQUATIONS

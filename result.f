@@ -35,8 +35,8 @@ C----------------------------------------------------------------------
       COMMON /COM21/RUN,PRINT
       COMMON /COM22/AWPM,D50M
       COMMON /COM25/WIDM,ELEVM,DCHM,TOXM,SVELM,SVELUM
-      COMMON /COM27/SBLWTA,SBLWT,SCVELIA,SCVELI,COUNTER,SPRTHICK,
-     #TOTTHICK
+      COMMON /COM27/SBLWTA,SBLWT,SCVELIA,SCVELI,SPRTHICK,
+     #TOTTHICK,COUNTER
       COMMON /COM28/NSIZE,NSIGMA,M,N
       COMMON /COM29/DELX,DELT,XPRINT,TPRINT
       COMMON /COM30/PLOTPRINT
@@ -103,26 +103,26 @@ C----------------------------------------------------------------------
   102              FORMAT(/,'  TIMESTEP  POSITION     AVERAGE    ',
      #       ' AVERAGE     ',
      #       ' AVERAGE       AVERAGE  ',
-     #       '    CUMULATIVE    CUMULATIVE    CUMULATIVE   DFIFTY  ',)
+     #       '    CUMULATIVE    CUMULATIVE    CUMULATIVE   DFIFTY  ')
          WRITE (12, 103) 
   103           FORMAT('                         BEDLOAD',
      #            '     SUSP. LOAD ',
      #            '    BEDLOAD       SUSP. LOAD ',
-     #            ' AMT.ERODED(-) AMT.ERODED(-) AMT.ERODED(-)       ',)
+     #            ' AMT.ERODED(-) AMT.ERODED(-) AMT.ERODED(-)       ')
          WRITE (12, 104) 
   104           FORMAT('                         SPATIAL',
      #            '       SPATIAL   ',
      #            '    MASS TRANS   MASS TRANS',
-     #            '  OVER DELT     OVER TPRINT     OVER N*DELT       ',)
+     #            '  OVER DELT     OVER TPRINT     OVER N*DELT       ')
          WRITE (12, 105) 
   105           FORMAT('                         GRADIENT',
      #            '      GRADIENT  ',
      #             '     RATE PER     RATE PER',
-     #            '                                              ',)
+     #            '                                              ')
          WRITE (12, 106) 
   106           FORMAT('                        PER UNIT A',
      #            '     PER UNIT A  ',
-     #            'UNIT WIDTH     UNIT WIDTH',)
+     #            'UNIT WIDTH     UNIT WIDTH')
          WRITE (12, 107) 
   107            FORMAT('               (M)       (KG/M2S) ',
      #       '     (KG/M2S) ',
@@ -138,7 +138,7 @@ C----------------------------------------------------------------------
       ENDIF
       DO 5 JN = 2, M
          STEP = (JN-2)*DELX/XPRINT + 0.00001
-         IF (FLOAT(STEP) - FLOAT(INT(STEP)) .LT. 0.0001) THEN
+         IF (REAL(STEP) - REAL(INT(STEP)) .LT. 0.0001) THEN
             IF (PRINT(4) .EQ. 1) THEN
                TIME = DELT*NT/(PRINT(6)*TPRINT) + 0.00001
                IF (TIME - FLOAT(INT(TIME)) .LE. 0.0001) THEN
@@ -148,27 +148,27 @@ C----------------------------------------------------------------------
   110              FORMAT(/,' GRAIN SIZE AVERAGE    INSTANT',
      #  '   AVERAGE    INSTANT',
      #  '    AVERAGE    INSTANT    AVERAGE    INSTANT',
-     #  '   CUMULATIVE  CUMULATIVE  CUMULATIVE',)
+     #  '   CUMULATIVE  CUMULATIVE  CUMULATIVE')
 C-----------------------------------------------------------------
                   WRITE (13, 111) 
   111           FORMAT(' MIDPOINT   BEDLOAD    BEDLOAD',
      #            '   SUSP. LOAD SUSP. LOAD',
      #            ' BEDLOAD    BEDLOAD SUSP. LOAD SUSP. LOAD',
-     #            ' AMT.ERODED(-) AMT.ERODED(-) AMT.ERODED(-)',)
+     #            ' AMT.ERODED(-) AMT.ERODED(-) AMT.ERODED(-)')
                   WRITE (13, 112) 
   112           FORMAT('            SPATIAL    SPATIAL',
      #            '   SPATIAL    SPATIAL',
      #            '   MASS TRANS MASS TRANS  MASS TRANS MASS TRANS',
-     #            ' OVER DELT   OVER TPRINT OVER N*DELT',)
+     #            ' OVER DELT   OVER TPRINT OVER N*DELT')
                   WRITE (13, 113) 
   113           FORMAT('            GRADIENT   GRADIENT',
      #            '  GRADIENT   GRADIENT  ',
      #             ' RATE PER   RATE PER    RATE PER   RATE PER',
-     #       '    ',)
+     #       '    ')
                   WRITE (13, 114) 
   114           FORMAT('            PER UNIT A PER UNIT A',
      #            'PER UNIT A PER UNIT A  ',
-     #            'UNIT WIDTH UNIT WIDTH  UNIT WIDTH UNIT WIDTH',)
+     #            'UNIT WIDTH UNIT WIDTH  UNIT WIDTH UNIT WIDTH')
                   WRITE (13, 115) 
   115            FORMAT('   (M)       (KG/M2S) (KG/M2S) ',
      #            '   (KG/M2S)    (KG/M2S) ',

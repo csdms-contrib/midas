@@ -24,8 +24,8 @@ C---------------------------------------------------------------------
       COMMON /COM4/DIFEND,DIMIN
       COMMON /COM22/AWPM,D50M
       COMMON /COM25/WIDM,ELEVM,DCHM,TOXM,SVELM,SVELUM
-      COMMON /COM27/SBLWTA,SBLWT,SCVELIA,SCVELI,COUNTER,SPRTHICK,
-     #              TOTTHICK
+      COMMON /COM27/SBLWTA,SBLWT,SCVELIA,SCVELI,SPRTHICK,
+     #              TOTTHICK,COUNTER
       COMMON /COM28/NSIZE,NSIGMA,M,N
       COMMON /COM29/DELX,DELT,XPRINT,TPRINT
       COMMON /COM30/PLOTPRINT
@@ -49,14 +49,14 @@ C---------------------------------------------------------------------
     1       CONTINUE
     2    CONTINUE
       ENDIF
-  100  FORMAT(1X,I6)
-  101  FORMAT(1X,I6,2X,I3)
+C 100  FORMAT(1X,I6)
+C 101  FORMAT(1X,I6,2X,I3)
       WRITE (20, *) CHAR(39), NT, CHAR(39)
       WRITE (22, *) CHAR(39), NT, CHAR(39)
       DO 3 J = 1, NSIGMA
          WRITE (12 + J, *) CHAR(39), NT, CHAR(39)
     3 CONTINUE
-  102 FORMAT(1X,A1,I6,A1)
+C 102 FORMAT(1X,A1,I6,A1)
       TOTSBLWTA = 0.0D0
       TOTSCVELIA = 0.0D0
       DO 5 J = 1, NSIGMA
@@ -73,7 +73,7 @@ C---------------------------------------------------------------------
          IF (TEMP .LE. 0.01) THEN
             WRITE (18, *) POS, ELEVM(JN), D50M(JN)*1000
             WRITE (20, *) POS, DCHM(JN)
-  103     FORMAT(1X,F10.3,2X,F8.3)
+C 103     FORMAT(1X,F10.3,2X,F8.3)
             CUMWT = 0.0
             DO 7 J = 1, NSIGMA
                WRITE (12 + J, *) POS
@@ -81,11 +81,11 @@ C---------------------------------------------------------------------
                   WRITE (12 + J, 105) AWPM(I,J,JN)*100
     6          CONTINUE
     7       CONTINUE
-  104     FORMAT(/)
+C 104     FORMAT(/)
          ENDIF
   105  FORMAT(1X,F8.3,2X,F8.2)
-  106  FORMAT(1X,F8.0)
-  107  FORMAT(1X,3F10.3)
+C 106  FORMAT(1X,F8.0)
+C 107  FORMAT(1X,3F10.3)
     8 CONTINUE
       RETURN 
       END
