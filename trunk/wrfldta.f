@@ -5,7 +5,7 @@ C                   PROFILE TO OUTPUT
 C----------------------------------------------------------------------
       SUBROUTINE WRFLDTA(NT)
       IMPLICIT NONE
-      REAL*8 Q,MANN(100),DINIT,FLOWEL                                    
+      REAL*8 Q,MANN(100),DINIT,FLOWEL
       REAL*8 VOLCON,ACTIVE,PRTHICK(20,3,100),NWAVDENS(100),THICKM(100), 
      #AWPOM(20,3,100),MSPRTHK(20,3,100),AVDENS(100)
       REAL*8 AWPM(20,3,100),D50M(100)                                  
@@ -91,7 +91,7 @@ C----------------------------------------------------------------------
             COUNTER = COUNTER + 1
          ENDIF
     1 CONTINUE
-  102           FORMAT(2E15.8)
+C 102           FORMAT(2E15.8)
       WRITE (8, 103) 
   103                 FORMAT(' ','----------------------------------',
      #                        '-------------------------------------',

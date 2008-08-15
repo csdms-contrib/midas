@@ -50,7 +50,7 @@ C----------------------------------------------------------------------
       COMMON /COM23/BLWTAM,BLWTM,SUM1,SUM2
       COMMON /COM28/NSIZE,NSIGMA,M,N
       COMMON /COM29/DELX,DELT,XPRINT,TPRINT
-      COMMON /COM36/QSMOD,BLWTO,BCOUNT,THALFB,RENEW
+      COMMON /COM36/BLWTO,QSMOD,BCOUNT,THALFB,RENEW
 C----------------------------------------------------------------------
 C     INTERNAL VARIABLES
 C----------------------------------------------------------------------
@@ -82,8 +82,8 @@ C----------------------------------------------------------------------
          DO 6 J = 1, NSIGMA
             DO 5 I = 1, NSIZE(J)
                CONV = LOG(0.5)
-               BLWTM(I,J,1) = BLWTO(I,J)*EXP(CONV*(FLOAT(BCOUNT*DELT)/
-     #            FLOAT(THALFB*3600.0/DELT)))
+               BLWTM(I,J,1) = BLWTO(I,J)*EXP(CONV*(REAL(BCOUNT*DELT)/
+     #            REAL(THALFB*3600.0/DELT)))
     5       CONTINUE
     6    CONTINUE
          BCOUNT = BCOUNT + 1

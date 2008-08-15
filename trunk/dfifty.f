@@ -17,7 +17,7 @@ C               COMMON BLOCKS
 C----------------------------------------------------------------------
       COMMON /COM3/DIMID,SIGMA
       COMMON /COM4/DIFEND,DIMIN
-      COMMON /COM20/ NTOT,DENDM
+      COMMON /COM20/DENDM,NTOT
       COMMON /COM22/AWPM,D50M
       COMMON /COM28/NSIZE,NSIGMA,M,N
 C----------------------------------------------------------------------

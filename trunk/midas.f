@@ -86,15 +86,15 @@ C----------------------------------------------------------------------
       COMMON /COM17/SDBDX,SDBDT,SXFLUX,STFLUX,STHICK
       COMMON /COM18/CONCM,CONC
       COMMON /COM19/YMAX,DELY,VEL,EPSY,PSI,BETA
-      COMMON /COM20/ NTOT,DENDM
+      COMMON /COM20/DENDM,NTOT
       COMMON /COM21/RUN,PRINT
       COMMON /COM22/AWPM,D50M
       COMMON /COM23/BLWTAM,BLWTM,SUM1,SUM2
       COMMON /COM24/MEAN,STDEV,PROPTJ
       COMMON /COM25/WIDM,ELEVM,DCHM,TOXM,SVELM,SVELUM
       COMMON /COM26/STRDATA
-      COMMON /COM27/SBLWTA,SBLWT,SCVELIA,SCVELI,COUNTER,SPRTHICK,
-     #        TOTTHICK
+      COMMON /COM27/SBLWTA,SBLWT,SCVELIA,SCVELI,SPRTHICK,
+     #        TOTTHICK,COUNTER
       COMMON /COM28/NSIZE,NSIGMA,M,N
       COMMON /COM29/DELX,DELT,XPRINT,TPRINT
       COMMON /COM30/PLOTPRINT
@@ -103,7 +103,7 @@ C----------------------------------------------------------------------
       COMMON /COM33/ RLONG,TFILE,NTIM,NT,OPTDIST,
      #        IFILE,OPTCONT,FOUT,RUNNAME
       COMMON /COM35/ QTMOD,THALFQ,QCOUNT,QSPMOD,QFAC
-      COMMON /COM36/QSMOD,BLWTO,BCOUNT,THALFB,RENEW
+      COMMON /COM36/BLWTO,QSMOD,BCOUNT,THALFB,RENEW
 C----------------------------------------------------------------------
 C   INTERNAL VARIABLES
 C----------------------------------------------------------------------
@@ -353,8 +353,8 @@ C----------------------------------------------------------------------
 C  COMPUTE VERTICAL DIFFUSIVITIY PROFILE
 C----------------------------------------------------------------------
          CALL EXVERT
-         IF (NT .EQ. 0) CALL SUSP1 (NT)
-         CALL SUSP (NT)
+         IF (NT .EQ. 0) CALL SUSP1
+         CALL SUSP
 C----------------------------------------------------------------------
 C  CALCULATE EROSION/DEPOSITION AND NEW WEIGHT PROPORTIONS IN ACTIVE LAYER
 C----------------------------------------------------------------------
@@ -391,7 +391,7 @@ C----------------------------------------------------------------------
   106  FORMAT(59X,F6.3,4(/,59X,F7.4))
   107  FORMAT(5(59X,I1,/),59X,I1)
   108  FORMAT(/,/,/,59X,F8.3,/,59X,F8.6)
-  109  FORMAT(59X,F10.5,/,59X,F8.6)
+C 109  FORMAT(59X,F10.5,/,59X,F8.6)
   110  FORMAT(/,/,/,59X,A8,/)
   111  FORMAT(/,/,99F8.3)
   112  FORMAT(F8.0)

@@ -3,7 +3,7 @@ C  THIS SUBROUTINE: PRINTS ENTRAINMENT VALUES
 C----------------------------------------------------------------------
       SUBROUTINE TOPRINT(NT)
       IMPLICIT NONE
-      REAL*8 RHO,G                                                       
+      REAL*8 RHO,G
       REAL*8 VISKIN,THETAC                                              
       REAL*8 DIMID(20,3),SIGMA(3)                                      
       REAL*8 SETV(20,3),TC(20,3,100),SHVELC(20,3,100)                 
@@ -99,7 +99,7 @@ C     INDICES FOR EACH MINERAL SPECIES
 C----------------------------------------------------------------------
       DO 8 JN = 2, M
          POS = (JN-2)*DELX/XPRINT + 0.000001
-         IF (FLOAT(POS) - FLOAT(INT(POS)) .LE. 0.00001) THEN
+         IF (REAL(POS) - REAL(INT(POS)) .LE. 0.00001) THEN
             WRITE (7, 112) 
             WRITE (7, 107) (JN - 2)*DELX, NT, TOXM(JN), D50M(JN)
             WRITE (7, 112) 
@@ -134,7 +134,7 @@ C----------------------------------------------------------------------
     6          CONTINUE
   109    FORMAT(F10.2,7X,F10.7,I4,2X,F10.7,I4,2X,F10.7,10X,
      #2F10.6,F9.3,F13.3,6X,F9.3,2X,I3)
-  110    FORMAT(85X,2F10.6,F9.3,F13.3,6X,F9.3,2X,I3)
+C 110    FORMAT(85X,2F10.6,F9.3,F13.3,6X,F9.3,2X,I3)
     7       CONTINUE
             WRITE (7, 112) 
   111 FORMAT('','-------------------------------------------------------
